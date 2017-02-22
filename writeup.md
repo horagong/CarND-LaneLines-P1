@@ -5,14 +5,14 @@ The goals / steps of this project are the following:
 * Make a pipeline that finds lane lines on the road
 * Reflect on your work in a written report
 
-[image1]: ./white.png
-[image2]: ./yellow.png 
-[image3]: ./gray.png
-[image4]: ./gray_blur.png
-[image5]: ./canny.png
-[image6]: ./region.png
-[image7]: ./hough.png
-[image8]: ./result.png
+[image1]: ./examples/white.png
+[image2]: ./examples/yellow.png 
+[image3]: ./examples/gray.png
+[image4]: ./examples/gray_blur.png
+[image5]: ./examples/canny.png
+[image6]: ./examples/region.png
+[image7]: ./examples/hough.png
+[image8]: ./examples/result.png
 
 ---
 # Reflection
@@ -23,7 +23,7 @@ The goals / steps of this project are the following:
 1. Extracts white or yellow colors in some range and then merge into a grayscale image.
 
     * ![alt text][image1] ![alt text][image2]
-    * When I converted the image only to grayscale, the extra.mp4 case don't work well. The yellow lane in the video are not distinguished well in bright road, so I extracted the yellow colors seperately.
+    * When I converted the image only to grayscale, the extra.mp4 case don't work well. The yellow lane in the video are not distinguished well in the bright road, so I extracted the yellow color also.
     * And then bitewise_or them
 
     * ![][image3]
@@ -48,7 +48,7 @@ The goals / steps of this project are the following:
     * ![][image8]
 
 ## Making a single lane
-I have some assumptions in this project.
+I made some assumptions in this project.
 * The colors of the lane are yellow or white.
 * The bottom end of lanes are within the width of image.
 * The horizontal lanes should be ignored but the vertical lanes are possible.
@@ -59,10 +59,10 @@ I have some assumptions in this project.
 In order to make a single lane per each side, I first tried to use **the slope** for the criteria to seperate lines.
 For the vertical lanes, I calculated the x/y slope, *instead of y/x*, but in case of the slope of 0, it's side is not determined.
 
-*I considered the cases that the lanes look vertical or lanes get broader so the slope of the each side can get opposite.*
+*I wanted to consider the cases that the lanes look vertical or lanes get broader so the slope of the each side can get opposite.*
 
-So I decided to use **the vertical center line** of the region of interest. The lines in the left side of the center are the left lane.
-And the I compared the average of the slope and the regression of the line points to decide which is better.
+So I decided to use **the vertical center line** of the region of interest. The lines in the left side of the center are included in the left lane.
+I calculated both the average of the slope and the regression of the line points to decide which is better.
 When I used the slope criteria, if the error lines were in the opposite side then the regression was not good.
 But when I used the center line criteria, the regression looked better than the simple average of slope.
 
@@ -74,6 +74,7 @@ My pipeline's shortcoming comes from my assumptions.
 * If the lanes' width are outside of the image width, it's not able to detect the lanes.
 * If the lines in curve are over the vertical center line of the region of interest, 
 the height of the region of interest should be reduced according to the curve.
+
 ---
 ## Possible improvements
 * Auto resizing of the height of the region of interest so the curve lane are not to exceed the center of the region.

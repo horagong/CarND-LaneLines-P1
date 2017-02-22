@@ -79,5 +79,4 @@ the height of the region of interest should be reduced according to the curve.
 ## Possible improvements
 * Auto resizing of the height of the region of interest so the curve lane are not to exceed the center of the region.
 * Tuning of the Color range.
-* Drawing the average of the previous lanes to reduce a shiver of lane.
 * Tring to exclude outliers before regression, like RANSAC.

@@ -24,9 +24,7 @@ The goal of this project is to detect lane lines in images using Python and Open
 
 
 
-# Reflection
-
-## Line detecting pipeline and Making a single lane.
+## Reflection
 
 ### My pipeline that finds lane lines on the road
 1. Extracts white or yellow colors in some range and then merge into a grayscale image.
@@ -75,7 +73,7 @@ I calculated both the average of the slope and the regression of the line points
 When I used the slope criteria, if the error lines were in the opposite side then the regression was not good.
 But when I used the center line criteria, the regression looked better than the simple average of slope.
 
----
+
 ## Shortcomings with the current pipeline
 
 My pipeline's shortcoming comes from my assumptions.
@@ -84,7 +82,7 @@ My pipeline's shortcoming comes from my assumptions.
 * If the lines in curve are over the vertical center line of the region of interest, 
 the height of the region of interest should be reduced according to the curve.
 
----
+
 ## Possible improvements
 * Auto resizing of the height of the region of interest so the curve lane are not to exceed the center of the region.
 * Tuning of the Color range.

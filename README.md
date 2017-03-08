@@ -29,7 +29,8 @@ The goal of this project is to detect lane lines in images using Python and Open
 ### My pipeline that finds lane lines on the road
 1. Extracts white or yellow colors in some range and then merge into a grayscale image.
 
-    * <img src="./examples/white.png" height="300"> <img src="./examples/yellow.png" height="300">
+    * <img src="./examples/white.png" width="500"> 
+    * <img src="./examples/yellow.png" width="500">
     * When I converted the image only to grayscale, the challenge.mp4 case don't work well. The yellow lane in the video are not distinguished well in the bright road, so I extracted the yellow color also.
     * And then bitewise_or them
 

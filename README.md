@@ -29,30 +29,30 @@ The goal of this project is to detect lane lines in images using Python and Open
 ### My pipeline that finds lane lines on the road
 1. Extracts white or yellow colors in some range and then merge into a grayscale image.
 
-    * ![alt text][image1] ![alt text][image2]
+    * <img src="./examples/white.png" height="300"> <img src="./examples/yellow.png" height="300">
     * When I converted the image only to grayscale, the challenge.mp4 case don't work well. The yellow lane in the video are not distinguished well in the bright road, so I extracted the yellow color also.
     * And then bitewise_or them
 
-    * ![][image3]
+    * <img src="./examples/gray.png" width="500">
 
 2. Blurring
 
-    * ![][image4]
+    * <img src="./examples/gray_blur.png" width="500">
 
 3. Canny edge dection
 
-    * ![][image5]
+    * <img src="./examples/canny.png" width="500">
 
 4. Region masking
 
-    * ![][image6]
+    * <img src="./examples/region.png" width="500">
 
 5. Hough line detection
 
-    * ![][image7]
+    * <img src="./examples/hough.png" width="500">
 
 * Result
-    * ![][image8]
+    * <img src="./examples/result.png" width="500">
 
 ## Making a single lane
 I made some assumptions in this project.
